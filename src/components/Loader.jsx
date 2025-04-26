@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 
 const Loader = () => {
   return (
@@ -20,10 +20,10 @@ const Loader = () => {
         transition={{
           duration: 1.5,
           repeat: Number.POSITIVE_INFINITY,
-          repeatType: "loop",
+          repeatType: 'loop',
         }}
       >
-        AM
+        Aaryan Mantri
       </motion.div>
     </motion.div>
   )
