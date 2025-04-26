@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
+import Resume from '../assets/pdf/resume.pdf'
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -61,6 +61,15 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
+            <motion.a
+              href={Resume}
+              download="Aaryan Mantri Resume"
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+            >
+              Resume
+            </motion.a>
           </nav>
 
           {/* Mobile Menu Button */}
