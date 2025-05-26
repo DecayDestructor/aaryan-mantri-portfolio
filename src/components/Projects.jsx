@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer'
 import proscript from '../assets/proscript.png'
 import codered from '../assets/codered.jpg'
 import codevault from '../assets/codevault.png'
+import khalo from '../assets/khalo.png'
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -15,6 +16,20 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(0)
 
   const projects = [
+    {
+      title: 'Khalo',
+      description:
+        'A street food discovery platform with community features, personalized recommendations, and swipe-based matching system.',
+      image: khalo,
+      tech: ['Supabase', 'Gemini API', 'ExpressJS', 'NodeJS', 'React Native'],
+      features: [
+        'Implemented community feature enabling users to post, like, and filter food-related content based on location',
+        'Engineered personalized stall recommendations combining user preferences and geospatial data with PostGIS',
+        'Developed swipe-based matching system connecting users with food stalls tailored to current cravings',
+        'Integrated Gemini API to automatically analyze user feedback and generate dynamic stall ratings',
+      ],
+      link: 'https://github.com/traveller318/SEHACK_LinearDepression_Khalo',
+    },
     {
       title: 'ProScript',
       description:

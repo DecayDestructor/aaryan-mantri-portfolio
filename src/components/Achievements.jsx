@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const Achievements = () => {
   const [ref, inView] = useInView({
@@ -11,8 +11,8 @@ const Achievements = () => {
 
   const achievements = [
     {
-      title: "Codeforces Pupil",
-      description: "Achieved a maximum rating of 1382 on Codeforces",
+      title: 'Codeforces Specialist',
+      description: 'Achieved a maximum rating of 1421 on Codeforces',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,11 +29,33 @@ const Achievements = () => {
           />
         </svg>
       ),
-      date: "Present",
+      date: 'Present',
     },
     {
-      title: "Finalist of CSI - SPIT Hackathon",
-      description: "National Level Hackathon at Sardar Patel Institute of Technology",
+      title: 'Winner of App Development',
+      description: 'SE Hackathon at CSI - SPIT',
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+          />
+        </svg>
+      ),
+      date: 'April 2025',
+    },
+    {
+      title: 'Finalist of CSI - SPIT Hackathon',
+      description:
+        'National Level Hackathon at Sardar Patel Institute of Technology',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,28 +72,7 @@ const Achievements = () => {
           />
         </svg>
       ),
-      date: "February 2025",
-    },
-    {
-      title: "India Top 100 - Google Solution Challenge",
-      description: "International Level Hackathon by Google Inc",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-          />
-        </svg>
-      ),
-      date: "March 2024",
+      date: 'February 2025',
     },
   ]
 
@@ -113,7 +114,7 @@ const Achievements = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="grid md:grid-cols-3 gap-8"
         >
           {achievements.map((achievement, index) => (
@@ -156,8 +157,9 @@ const Achievements = () => {
           className="mt-16 text-center"
         >
           <p className="text-gray-300 max-w-2xl mx-auto">
-            These achievements represent my dedication to continuous learning and problem-solving in the field of
-            computer science and software development.
+            These achievements represent my dedication to continuous learning
+            and problem-solving in the field of computer science and software
+            development.
           </p>
         </motion.div>
       </div>

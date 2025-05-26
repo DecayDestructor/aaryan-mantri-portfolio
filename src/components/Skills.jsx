@@ -34,6 +34,8 @@ import {
   SiExpress,
   SiC,
 } from 'react-icons/si'
+import { RiSupabaseFill } from 'react-icons/ri'
+import { TbBrandReactNative } from 'react-icons/tb'
 import { BiLogoVisualStudio as SiVisualstudiocode } from 'react-icons/bi'
 import { TbBrandCpp } from 'react-icons/tb'
 
@@ -75,6 +77,8 @@ const Skills = () => {
     Eclipse: <SiEclipseide className="text-xl text-purple-400" />,
     IntelliJ: <SiIntellijidea className="text-xl text-pink-500" />,
     PyCharm: <SiPycharm className="text-xl text-green-400" />,
+    Supabase: <RiSupabaseFill className="text-xl text-cyan-400" />,
+    'React Native': <TbBrandReactNative className="text-xl text-cyan-400" />,
   }
 
   const skillCategories = [
@@ -102,11 +106,12 @@ const Skills = () => {
         'Django',
         'NextJS',
         'FastAPI',
+        'React Native',
       ],
     },
     {
       title: 'Databases',
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis'],
+      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Supabase'],
     },
     {
       title: 'Developer Tools',
@@ -212,7 +217,7 @@ const Skills = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold">Codeforces</h4>
-                <p className="text-indigo-400">Pupil (max. 1382)</p>
+                <p className="text-indigo-400">Specialist (max. 1421)</p>
               </div>
             </div>
           </div>
