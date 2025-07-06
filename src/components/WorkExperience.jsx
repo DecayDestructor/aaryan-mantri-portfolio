@@ -210,12 +210,12 @@ const WorkExperience = () => {
                               : { opacity: 0, y: 20 }
                           }
                           transition={{ delay: 0.6 }}
-                          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                          className="flex items-center justify-center gap-4 mt-6"
                         >
                           {experience.metrics.map((metric, i) => (
                             <div
                               key={i}
-                              className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700/30"
+                              className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700/30 w-full"
                             >
                               <div className="text-2xl font-bold text-indigo-400 mb-1">
                                 {metric.value}
