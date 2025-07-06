@@ -1,17 +1,18 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { AnimatePresence } from "framer-motion"
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import About from "./components/About"
-import Skills from "./components/Skills"
-import Projects from "./components/Projects"
-import Achievements from "./components/Achievements"
-import Experience from "./components/Experience"
-import Contact from "./components/Contact"
-import Footer from "./components/Footer"
-import Loader from "./components/Loader"
+import { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import About from './components/About'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Achievements from './components/Achievements'
+import Experience from './components/Experience'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import Loader from './components/Loader'
+import WorkExperience from './components/WorkExperience'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -34,8 +35,9 @@ function App() {
             <main>
               <Hero />
               <About />
-              <Skills />
+              <WorkExperience />
               <Projects />
+              <Skills />
               <Achievements />
               <Experience />
               <Contact />
