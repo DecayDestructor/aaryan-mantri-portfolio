@@ -163,6 +163,11 @@ const Projects = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
+                onClick={() => {
+                  document
+                    .getElementById('active-project-details')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }}
               >
                 View Details
                 <svg
@@ -189,6 +194,7 @@ const Projects = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="card overflow-hidden"
+          id="active-project-details"
         >
           {/* Image at the top half of the card */}
           <div className="w-full h-64 md:h-80 overflow-hidden relative mb-6">
