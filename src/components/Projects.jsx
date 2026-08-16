@@ -1,12 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import proscript from '../assets/proscript.png'
 import codered from '../assets/codered.jpg'
 import codevault from '../assets/codevault.png'
 import khalo from '../assets/khalo.png'
+import attendomatic from '../assets/attendomatic.png'
+import autocomplete1 from '../assets/autocomplete1.jpg'
+import autocomplete2 from '../assets/autocomplete2.jpg'
+import autocomplete3 from '../assets/autocomplete3.jpg'
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -14,8 +18,47 @@ const Projects = () => {
   })
 
   const [activeProject, setActiveProject] = useState(0)
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const _motionReference = motion
 
   const projects = [
+    {
+      title: 'Distributed Autocomplete',
+      description:
+        'A distributed autocomplete engine with sharded radix-trie storage, Kafka feedback streaming, and fault-tolerant routing under load.',
+      image: autocomplete1,
+      gallery: [autocomplete1, autocomplete2, autocomplete3],
+      tech: [
+        'FastAPI',
+        'Redis',
+        'Kafka',
+        'Docker',
+        'Nginx',
+        'Prometheus',
+        'Grafana',
+      ],
+      features: [
+        'Built a distributed autocomplete service with a compressed radix trie maintaining top-k ranked suggestions per node, sharded across 4 Docker containers using hybrid range partitioning and consistent hashing',
+        'Engineered a Kafka streaming pipeline that decouples read and write paths so completed searches are aggregated over 30-second windows and asynchronously fed back into trie shards',
+        'Implemented automatic fault tolerance via heartbeat health checks; dead shards are removed from the hash ring within 5 seconds and traffic redistributes without manual intervention',
+        'Achieved 99% cache hit rate and zero failures across 15,000+ requests under load testing at 80 req/sec with 100 concurrent users, observable via a live Prometheus and Grafana dashboard',
+      ],
+      link: 'https://github.com/DecayDestructor/distributed-autocomplete',
+    },
+    {
+      title: 'Attendomatic',
+      description:
+        'A platform-independent attendance tracking service with adapter-based integrations and an LLM intent parser for natural-language operations.',
+      image: attendomatic,
+      tech: ['FastAPI', 'PostgreSQL', 'SQLModel', 'Groq LLM'],
+      features: [
+        'Built a platform-independent attendance tracking service with a decoupled adapter architecture, enabling extension to Telegram, WhatsApp, and Discord without changing core business logic',
+        'Engineered an LLM-powered natural-language parser that converts free-text messages into validated JSON actions using structured output schemas',
+        'Implemented a confirmation-based execution flow to prevent unintended attendance operations',
+        'Designed for seamless expansion into additional communication platforms and institutional workflows',
+      ],
+      link: 'https://github.com/DecayDestructor/attendomatic',
+    },
     {
       title: 'Khalo',
       description:
@@ -89,6 +132,25 @@ const Projects = () => {
       link: 'https://github.com/DecayDestructor/code-vault',
     },
   ]
+
+  const activeProjectData = projects[activeProject]
+  const galleryImages = activeProjectData.gallery || [activeProjectData.image]
+
+  useEffect(() => {
+    setActiveImageIndex(0)
+  }, [activeProject])
+
+  const handlePrevImage = () => {
+    setActiveImageIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1,
+    )
+  }
+
+  const handleNextImage = () => {
+    setActiveImageIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1,
+    )
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -200,10 +262,45 @@ const Projects = () => {
           <div className="w-full h-64 md:h-80 overflow-hidden relative mb-6">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-30 blur-sm"></div>
             <img
-              src={projects[activeProject].image || '/placeholder.svg'}
-              alt={projects[activeProject].title}
+              src={galleryImages[activeImageIndex] || '/placeholder.svg'}
+              alt={activeProjectData.title}
               className="w-full h-full object-contain bg-gray-900"
             />
+            {galleryImages.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={handlePrevImage}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gray-900/80 border border-gray-700/60 text-white hover:bg-gray-800 transition-colors"
+                  aria-label="Previous image"
+                >
+                  &#8592;
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNextImage}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gray-900/80 border border-gray-700/60 text-white hover:bg-gray-800 transition-colors"
+                  aria-label="Next image"
+                >
+                  &#8594;
+                </button>
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900/70 border border-gray-700/60">
+                  {galleryImages.map((image, index) => (
+                    <button
+                      key={`${image}-${index}`}
+                      type="button"
+                      onClick={() => setActiveImageIndex(index)}
+                      className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                        index === activeImageIndex
+                          ? 'bg-indigo-400'
+                          : 'bg-gray-500 hover:bg-gray-300'
+                      }`}
+                      aria-label={`Open image ${index + 1}`}
+                    ></button>
+                  ))}
+                </div>
+              </>
+            )}
             <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-gray-900/80 to-transparent">
               <motion.span
                 initial={{ opacity: 0 }}
@@ -211,7 +308,9 @@ const Projects = () => {
                 transition={{ delay: 0.2 }}
                 className="text-sm font-medium px-3 py-1 rounded-full bg-indigo-500/30 text-indigo-300 border border-indigo-500/20"
               >
-                Screenshot
+                {galleryImages.length > 1
+                  ? `Screenshot ${activeImageIndex + 1}/${galleryImages.length}`
+                  : 'Screenshot'}
               </motion.span>
             </div>
           </div>
@@ -220,10 +319,10 @@ const Projects = () => {
           <div className="px-4 pb-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-                {projects[activeProject].title}
+                {activeProjectData.title}
               </h3>
               <motion.a
-                href={projects[activeProject].link}
+                href={activeProjectData.link}
                 className="btn-primary inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -247,7 +346,7 @@ const Projects = () => {
             </div>
 
             <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              {projects[activeProject].description}
+              {activeProjectData.description}
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -272,7 +371,7 @@ const Projects = () => {
                   Key Features
                 </h4>
                 <ul className="space-y-3 mb-6">
-                  {projects[activeProject].features.map((feature, index) => (
+                  {activeProjectData.features.map((feature, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -321,7 +420,7 @@ const Projects = () => {
                   Technologies Used
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {projects[activeProject].tech.map((tech, index) => (
+                  {activeProjectData.tech.map((tech, index) => (
                     <motion.span
                       key={index}
                       initial={{ opacity: 0, scale: 0.8 }}

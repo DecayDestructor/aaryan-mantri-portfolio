@@ -4,42 +4,32 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
   FaPython,
-  FaJava,
   FaHtml5,
   FaCss3Alt,
   FaJs,
-  FaReact,
   FaNodeJs,
-  FaBootstrap,
-  FaDatabase,
   FaCode,
   FaGitAlt,
   FaGithub,
 } from 'react-icons/fa'
 import {
-  SiTypescript,
-  SiTailwindcss,
-  SiRedux,
-  SiDjango,
-  SiNextdotjs,
   SiFastapi,
-  SiMongodb,
-  SiMysql,
-  SiPostgresql,
-  SiRedis,
-  // SiVisualstudiocode,
-  SiEclipseide,
-  SiIntellijidea,
-  SiPycharm,
   SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
+  SiApachekafka,
+  SiNginx,
+  SiPrometheus,
+  SiGrafana,
   SiC,
 } from 'react-icons/si'
-import { RiSupabaseFill } from 'react-icons/ri'
-import { TbBrandReactNative } from 'react-icons/tb'
 import { BiLogoVisualStudio as SiVisualstudiocode } from 'react-icons/bi'
 import { TbBrandCpp } from 'react-icons/tb'
 
 const Skills = () => {
+  const _motionReference = motion
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -47,9 +37,12 @@ const Skills = () => {
 
   const skillIconMap = {
     Python: <FaPython className="text-xl" />,
-    Java: <FaJava className="text-xl" />,
-    C: <SiC className="text-xl" />,
-    'C++': <TbBrandCpp className="text-xl" />,
+    'C/C++': (
+      <span className="flex items-center">
+        <SiC className="text-xl" />
+        <TbBrandCpp className="text-xl ml-1" />
+      </span>
+    ),
     'HTML/CSS': (
       <span className="flex items-center">
         <FaHtml5 className="text-xl text-orange-500" />
@@ -57,65 +50,47 @@ const Skills = () => {
       </span>
     ),
     JavaScript: <FaJs className="text-xl text-yellow-400" />,
-    TypeScript: <SiTypescript className="text-xl text-blue-600" />,
-    ReactJS: <FaReact className="text-xl text-cyan-400" />,
-    ExpressJS: <SiExpress className="text-xl" />,
-    NodeJS: <FaNodeJs className="text-xl text-green-500" />,
-    'Tailwind CSS': <SiTailwindcss className="text-xl text-cyan-400" />,
-    Bootstrap: <FaBootstrap className="text-xl text-purple-500" />,
-    'Redux Toolkit': <SiRedux className="text-xl text-purple-600" />,
-    Django: <SiDjango className="text-xl text-green-600" />,
-    NextJS: <SiNextdotjs className="text-xl" />,
     FastAPI: <SiFastapi className="text-xl text-teal-500" />,
-    MongoDB: <SiMongodb className="text-xl text-green-500" />,
-    MySQL: <SiMysql className="text-xl text-blue-500" />,
+    NodeJS: <FaNodeJs className="text-xl text-green-500" />,
+    ExpressJS: <SiExpress className="text-xl" />,
+    Docker: <SiDocker className="text-xl text-sky-400" />,
+    Kafka: <SiApachekafka className="text-xl" />,
+    Nginx: <SiNginx className="text-xl text-green-500" />,
+    Prometheus: <SiPrometheus className="text-xl text-orange-500" />,
+    Grafana: <SiGrafana className="text-xl text-orange-400" />,
     PostgreSQL: <SiPostgresql className="text-xl text-blue-400" />,
+    MongoDB: <SiMongodb className="text-xl text-green-500" />,
     Redis: <SiRedis className="text-xl text-red-500" />,
-    'VS Code': <SiVisualstudiocode className="text-xl text-blue-500" />,
     Git: <FaGitAlt className="text-xl text-orange-600" />,
     GitHub: <FaGithub className="text-xl" />,
-    Eclipse: <SiEclipseide className="text-xl text-purple-400" />,
-    IntelliJ: <SiIntellijidea className="text-xl text-pink-500" />,
-    PyCharm: <SiPycharm className="text-xl text-green-400" />,
-    Supabase: <RiSupabaseFill className="text-xl text-cyan-400" />,
-    'React Native': <TbBrandReactNative className="text-xl text-cyan-400" />,
+    'VS Code': <SiVisualstudiocode className="text-xl text-blue-500" />,
   }
 
   const skillCategories = [
     {
       title: 'Languages',
-      skills: [
-        'Python',
-        'Java',
-        'C',
-        'C++',
-        'HTML/CSS',
-        'JavaScript',
-        'TypeScript',
-      ],
+      skills: ['Python', 'C/C++', 'JavaScript', 'HTML/CSS'],
     },
     {
-      title: 'Frameworks & Libraries',
+      title: 'Technologies',
       skills: [
-        'ReactJS',
-        'ExpressJS',
-        'NodeJS',
-        'Tailwind CSS',
-        'Bootstrap',
-        'Redux Toolkit',
-        'Django',
-        'NextJS',
         'FastAPI',
-        'React Native',
+        'NodeJS',
+        'ExpressJS',
+        'Docker',
+        'Kafka',
+        'Nginx',
+        'Prometheus',
+        'Grafana',
       ],
     },
     {
       title: 'Databases',
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Supabase'],
+      skills: ['PostgreSQL', 'MongoDB', 'Redis'],
     },
     {
       title: 'Developer Tools',
-      skills: ['VS Code', 'Git', 'GitHub', 'Eclipse', 'IntelliJ', 'PyCharm'],
+      skills: ['Git', 'GitHub', 'VS Code'],
     },
   ]
 

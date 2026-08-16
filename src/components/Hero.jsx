@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useParallax } from 'react-scroll-parallax'
-import selfpic2 from '../assets/selfpic2.jpeg'
+import selfpic2 from '../assets/selfpic2-optimized.jpg'
 const Hero = () => {
+  const _motionReference = motion
   const parallax = useParallax({
     speed: -10,
   })
@@ -49,7 +50,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              Computer Science Student & Developer
+              Computer Engineering Student | Fullstack & AI Developer
             </motion.p>
             <motion.div
               className="flex flex-wrap gap-4"
@@ -90,7 +91,7 @@ const Hero = () => {
                 <img
                   src={selfpic2}
                   alt="Aaryan Mantri"
-                  className="rounded-full w-4/5 h-4/5 object-cover"
+                  className="rounded-full w-4/5 h-4/5 object-cover object-top translate-y-2"
                 />
               </div>
 

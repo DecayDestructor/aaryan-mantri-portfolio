@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 
 const Loader = () => {
+  const _motionReference = motion
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center bg-gray-900 z-50"

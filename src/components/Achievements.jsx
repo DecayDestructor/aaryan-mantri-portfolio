@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const Achievements = () => {
+  const _motionReference = motion
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -30,49 +31,6 @@ const Achievements = () => {
         </svg>
       ),
       date: 'Present',
-    },
-    {
-      title: 'Winner of App Development',
-      description: 'SE Hackathon at CSI - SPIT',
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-          />
-        </svg>
-      ),
-      date: 'April 2025',
-    },
-    {
-      title: 'Finalist of CSI - SPIT Hackathon',
-      description:
-        'National Level Hackathon at Sardar Patel Institute of Technology',
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-          />
-        </svg>
-      ),
-      date: 'February 2025',
     },
   ]
 
@@ -115,7 +73,7 @@ const Achievements = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-1 max-w-md mx-auto gap-8"
         >
           {achievements.map((achievement, index) => (
             <motion.div
@@ -157,9 +115,9 @@ const Achievements = () => {
           className="mt-16 text-center"
         >
           <p className="text-gray-300 max-w-2xl mx-auto">
-            These achievements represent my dedication to continuous learning
-            and problem-solving in the field of computer science and software
-            development.
+            Competitive programming has strengthened my algorithmic thinking and
+            problem-solving speed, shaping how I approach production systems and
+            engineering trade-offs.
           </p>
         </motion.div>
       </div>

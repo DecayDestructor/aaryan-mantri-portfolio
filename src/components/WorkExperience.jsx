@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { workExperiencesData as workExperiences } from '../data/work-experiences.jsx'
 const WorkExperience = () => {
+  const _motionReference = motion
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -75,9 +76,18 @@ const WorkExperience = () => {
                           <h3 className="text-2xl font-bold mb-1">
                             {experience.title}
                           </h3>
-                          <h4 className="text-indigo-400 text-lg mb-2">
-                            {experience.organization}
-                          </h4>
+                          <div className="flex items-center gap-3 mb-2">
+                            {experience.logo && (
+                              <img
+                                src={experience.logo || '/placeholder.svg'}
+                                alt={`${experience.organization} logo`}
+                                className="h-8 w-auto rounded-md bg-white/90 p-1"
+                              />
+                            )}
+                            <h4 className="text-indigo-400 text-lg">
+                              {experience.organization}
+                            </h4>
+                          </div>
                           <p className="text-gray-400 mb-2">
                             {experience.location}
                           </p>
@@ -244,7 +254,7 @@ const WorkExperience = () => {
           <p className="text-gray-300 max-w-2xl mx-auto">
             {workExperiences.length === 1
               ? 'This experience provided valuable hands-on experience in full-stack development, system architecture, and working with real users in a startup environment.'
-              : 'These experiences have shaped my professional journey and provided valuable insights into software development and technology innovation.'}
+              : 'These experiences span AI systems, distributed knowledge retrieval, and product-focused full-stack delivery in high-impact environments.'}
           </p>
         </motion.div>
       </div>

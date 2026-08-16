@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const Experience = () => {
+  const _motionReference = motion
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -14,25 +15,17 @@ const Experience = () => {
       title: 'Statistics Head',
       organization: 'Core Team - Training and Placement Office',
       location: 'Sardar Patel Institute of Technology',
-      period: 'January 2025 - Present',
+      period: 'November 2024 - Present',
       description:
-        'Analyzing placement data and generating insights for the institute.',
+        'Own placement statistics tracking and reporting workflows for the institute\'s training and placement office.',
     },
     {
       title: 'Technical Head',
       organization: "Students' Developer Club",
       location: 'Sardar Patel Institute of Technology',
-      period: 'August 2024 - Present',
+      period: 'July 2024 - July 2025',
       description:
-        'Leading technical initiatives and workshops for student developers.',
-    },
-    {
-      title: 'Moderator',
-      organization: 'Community of Coders',
-      location: 'Sardar Patel Institute of Technology',
-      period: 'October 2023 - April 2024',
-      description:
-        'Facilitated coding events and mentored junior students in programming concepts.',
+        'Led technical initiatives, project guidance, and peer learning activities for the student developer community.',
     },
   ]
 

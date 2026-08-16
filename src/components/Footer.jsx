@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 
 const Footer = () => {
+  const _motionReference = motion
   const currentYear = new Date().getFullYear()
 
   return (
