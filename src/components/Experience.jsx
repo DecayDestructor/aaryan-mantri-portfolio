@@ -17,7 +17,7 @@ const Experience = () => {
       location: 'Sardar Patel Institute of Technology',
       period: 'November 2024 - Present',
       description:
-        'Own placement statistics tracking and reporting workflows for the institute\'s training and placement office.',
+        "Own placement statistics tracking and reporting workflows for the institute's training and placement office.",
     },
     {
       title: 'Technical Head',

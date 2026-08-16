@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useParallax } from 'react-scroll-parallax'
 import selfpic2 from '../assets/selfpic2-optimized.jpg'
+import selfpic from '../assets/selfpic.jpg'
 const Hero = () => {
   const _motionReference = motion
   const parallax = useParallax({
@@ -89,7 +90,7 @@ const Hero = () => {
               <div className="absolute inset-4 bg-gray-800 rounded-full"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <img
-                  src={selfpic2}
+                  src={selfpic}
                   alt="Aaryan Mantri"
                   className="rounded-full w-4/5 h-4/5 object-cover object-top translate-y-2"
                 />

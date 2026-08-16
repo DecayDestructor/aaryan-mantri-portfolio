@@ -11,7 +11,7 @@ export const workExperiencesData = [
     description:
       'Designed and delivered an advisor-facing intelligence platform that unified structured analytics and unstructured knowledge retrieval.',
     achievements: [
-      'Solo-architected and delivered a multi-agent AI platform using LangGraph, LangChain, FastAPI, and React for Russell Investments\' US Advisor Intermediary Solutions business, reducing advisor call-preparation time from 30-45 minutes to under 5 minutes',
+      "Solo-architected and delivered a multi-agent AI platform using LangGraph, LangChain, FastAPI, and React for Russell Investments' US Advisor Intermediary Solutions business, reducing advisor call-preparation time from 30-45 minutes to under 5 minutes",
       'Built a hybrid RAG pipeline combining dense vector retrieval and BM25 search across 1,000+ investment documents, enabling source-grounded responses for product, strategy, and sales-content queries',
       'Designed a query decomposition and routing framework that classified natural-language requests into structured analytics (Power BI/Snowflake KPI data) and unstructured knowledge retrieval workflows behind a single interface',
       'Developed a supervisor-agent architecture coordinating Product, Analytics, and Call-Prep agents, enabling intent-aware routing and automated advisor intelligence generation',
